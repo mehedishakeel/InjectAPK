@@ -27,7 +27,7 @@ if [[ $(id -u) -ne 0 ]] ; then
 else echo "Checking For Requirement Packages.." ; 
 fi
 
-
+sudo apt -y update && sudo apt -y upgrade
 #Checking and Installing Required Packages
 pkgs=(metasploit-framework wget default-jdk aapt apksigner apache2)
 for pkg in ${pkgs[@]}

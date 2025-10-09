@@ -29,7 +29,7 @@ fi
 
 sudo apt -y update && sudo apt -y upgrade
 #Checking and Installing Required Packages
-pkgs=(metasploit-framework wget default-jdk aapt apksigner apache2)
+pkgs=(metasploit-framework wget default-jdk aapt apksigner apache2 apktool)
 for pkg in ${pkgs[@]}
 do
  sudo apt install $pkg
@@ -37,12 +37,11 @@ done
 sleep 2
 clear
 
-# Setup New APKTOOL 2.9.0 Manually  Note : DO NOT INSTALL APKTOOL WITH APT PACKAGE MANAGER
+# Setup New APKTOOL Manually  
 
-sudo mv apktool /usr/local/bin
-sudo mv apktool_2.9.0.jar /usr/local/bin
-chmod +x /usr/local/bin/apktool
-chmod +x /usr/local/bin/apktool.jar
+wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.1.jar
+sudo mv apktool_2.12.1.jar apktool.jar
+sudo mv apktool.jar /usr/local/bin
 sudo apt install ./zipalign_8.1.0+r23-2_amd64.deb
 echo "Required Packages Has Been Installed Sucessfully"
 
